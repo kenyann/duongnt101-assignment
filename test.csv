@@ -31,7 +31,7 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 272350,Máy lạnh Daikin Inverter 1.5 HP FTKY35WMVMV,16490000.0,15590000.0,Daikin,1,4.0,1 chiều chỉ làm lạnh
 320851,Máy lạnh AQUA Inverter 2 HP AQA-RV18QE,16090000.0,14940000.0,Aqua,0,5.0,1 chiều chỉ làm lạnh
 321465,Máy lạnh TCL Inverter 1 HP TAC-09CSD/XAB1I,6990000.0,4990000.0,TCL,0,4.0,1 chiều chỉ làm lạnh
-307168,Máy lạnh TCL Inverter 1.5 HP TAC-13CSD/XAB1I,7990000,6990000,TCL,0,4.0,1 chiều chỉ làm lạnh
+307168,Máy lạnh TCL Inverter 1.5 HP TAC-13CSD/XAB1I,7990000.0,5990000.0,TCL,0,4.0,1 chiều chỉ làm lạnh
 302174,Máy lạnh Sharp Inverter 1.5 HP AH-X13ZEW,11290000.0,10590000.0,Sharp,0,4.0,1 chiều chỉ làm lạnh
 302496,Máy lạnh Comfee Inverter 2 HP CFS-18VDGF-V,11490000.0,11340000.0,Comfee,0,4.0,1 chiều chỉ làm lạnh
 321384,Máy lạnh Panasonic Inverter 2 HP CU/CS-PU18AKH-8,21190000.0,21190000.0,Panasonic,0,3.0,1 chiều chỉ làm lạnh
@@ -40,8 +40,8 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 300080,Máy lạnh LG Inverter 1 HP V10APFP,15190000.0,14190000.0,LG,0,4.0,1 chiều chỉ làm lạnh
 304225,Máy lạnh Samsung Wind-Free Inverter 1 HP AR10CYFAAWKNSV,12590000.0,11190000.0,Samsung,0,4.0,1 chiều chỉ làm lạnh
 302746,Máy lạnh Midea Inverter 1 HP MSAGA-10CRDN8,9290000.0,7090000.0,Midea,0,4.0,1 chiều chỉ làm lạnh
-234172,Máy lạnh LG Inverter 1.5 HP V13API1,15590000.0,14690000.0,LG,0,4.0,1 chiều chỉ làm lạnh
 303865,Máy lạnh Daikin Inverter 2 HP FTKF50XVMV,21090000.0,20090000.0,Daikin,1,4.0,1 chiều chỉ làm lạnh
+234172,Máy lạnh LG Inverter 1.5 HP V13API1,15590000.0,14690000.0,LG,0,4.0,1 chiều chỉ làm lạnh
 320602,Máy lạnh Sharp Inverter 1 HP AH-XP10BSW,10690000.0,10490000.0,Sharp,0,2.0,1 chiều chỉ làm lạnh
 322608,Máy lạnh Casper Inverter 2 HP GC-18IS33,15990000.0,12690000.0,Casper,0,4.0,1 chiều chỉ làm lạnh
 307258,Máy lạnh Daikin Inverter 2 chiều 1 HP ATHF25XVMV,13690000.0,13690000.0,Daikin,0,5.0,2 chiều có sưởi ấm
@@ -73,13 +73,13 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 320946,Máy lạnh Nagakawa Inverter 2.5 HP NIS-C24R2T28,18690000.0,16260000.0,Nagakawa,0,0.0,1 chiều chỉ làm lạnh
 321385,Máy lạnh Panasonic Inverter 2.5 HP CU/CS-PU24AKH-8,28590000.0,28590000.0,Panasonic,0,0.0,1 chiều chỉ làm lạnh
 321466,Máy lạnh TCL Inverter 2.5 HP TAC-24CSD/XAB1I,16990000.0,13990000.0,TCL,0,3.0,1 chiều chỉ làm lạnh
-321386,Máy lạnh Casper Inverter 1 HP QC-09IS36,8490000.0,7990000.0,Casper,0,4.0,1 chiều chỉ làm lạnh
 221834,Máy lạnh 2 chiều Panasonic Inverter 1 HP CU/CS-YZ9WKH-8,13390000.0,13390000.0,Panasonic,0,4.0,2 chiều có sưởi ấm
+321386,Máy lạnh Casper Inverter 1 HP QC-09IS36,8490000.0,7990000.0,Casper,0,4.0,1 chiều chỉ làm lạnh
 323089,Máy lạnh Samsung Wind-Free Inverter 2 HP AR18CYFCAWKNSV,21490000.0,17990000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
+310223,Máy lạnh hai chiều Inverter 1 HP Casper XH-09IF35,15990000.0,11990000.0,Casper,0,0.0,2 chiều có sưởi ấm
 320872,Máy lạnh LG Inverter 2.5 HP V24WIN1,23790000.0,21790000.0,LG,0,0.0,1 chiều chỉ làm lạnh
 280141,Máy lạnh Funiki Inverter 2.5 HP HIC24TMU.ST3,20190000.0,15890000.0,Funiki,0,4.0,1 chiều chỉ làm lạnh
 303858,Máy lạnh Aqua Inverter 1 HP AQA-RV9QA,9390000.0,8490000.0,Aqua,0,4.0,1 chiều chỉ làm lạnh
-310223,Máy lạnh hai chiều Inverter 1 HP Casper XH-09IF35,15990000.0,11990000.0,Casper,0,0.0,2 chiều có sưởi ấm
 217470,Máy lạnh Midea Inverter 1.5 HP MSAFA-13CRDN8,9790000.0,9790000.0,Midea,0,4.0,1 chiều chỉ làm lạnh
 273345,Máy lạnh 2 chiều LG Inverter 1.5 HP B13END1,16090000.0,15790000.0,LG,1,4.5,2 chiều có sưởi ấm
 324588,Máy lạnh AQUA Inverter 1 HP AQA-RUV10XAW2,12090000.0,11890000.0,Aqua,0,0.0,1 chiều chỉ làm lạnh
@@ -125,6 +125,7 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 299818,Máy lạnh âm trần LG Inverter 2.5 HP ZTNQ24GPLA0,34790000.0,26740000.0,LG,1,0.0,1 chiều chỉ làm lạnh
 309556,Máy lạnh 2 chiều Gree Inverter 2 HP CHARM18HI,19590000.0,19590000.0,Gree,1,0.0,2 chiều có sưởi ấm
 318369,Máy lạnh âm trần 1 hướng Samsung Inverter 2.5 HP AC071TN1DKC/EA,31890000.0,27840000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
+318372,Máy lạnh âm trần 1 hướng Samsung Wind-Free Inverter 1.5 HP AC035TN1DKC/EA,23000000.0,20240000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 324878,Máy lạnh 2 chiều Daikin Inverter 3 HP FTHF71VAVMV,38490000.0,38490000.0,Daikin,0,0.0,2 chiều có sưởi ấm
 273889,Máy lạnh âm trần LG 5 HP ATNQ48GMLE7 (3 pha),50790000.0,50790000.0,LG,1,0.0,1 chiều chỉ làm lạnh
 299822,Máy lạnh âm trần LG Inverter 5 HP ZTNQ48GMLA0,52290000.0,40490000.0,LG,1,0.0,1 chiều chỉ làm lạnh
@@ -140,7 +141,6 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 318364,Máy lạnh âm trần Samsung Inverter 3.5 HP AC100TN4DKC/EA (3 Pha),37690000.0,32740000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 318366,Máy lạnh âm trần Samsung Inverter 3.5 HP AC100TN4DKC/EA,37690000.0,32740000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 318371,Máy lạnh âm trần 1 hướng Samsung Inverter 2 HP AC052TN1DKC/EA,27790000.0,24240000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
-318372,Máy lạnh âm trần 1 hướng Samsung Wind-Free Inverter 1.5 HP AC035TN1DKC/EA,23000000.0,20240000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 320750,Máy lạnh tủ đứng Samsung Inverter 3 HP AC030BNPDKC/TC,40990000.0,32340000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 217473,Máy lạnh Midea Inverter 1 HP MSAG-10CRDN8,9990000.0,9990000.0,Midea,0,4.0,1 chiều chỉ làm lạnh
 318367,Máy lạnh âm trần 360 độ Samsung Inverter 3.5 HP AC100TN4PKC/EA (3 pha),48490000.0,41840000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
@@ -154,3 +154,4 @@ ID,Name,Actual Price,Price,Brand,Premium,Rating,Tags
 320748,Máy lạnh âm trần Cassette Samsung Inverter 5 HP WindFree AC140TN4DKC/EA,52290000.0,38240000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 320749,Máy lạnh âm trần Samsung Inverter 5 HP AC140TN4DKC/EA 3 Pha,52290000.0,38240000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
 320751,Máy lạnh tủ đứng Samsung Inverter 4 HP AC036BNPDKC/TC,50990000.0,40250000.0,Samsung,0,0.0,1 chiều chỉ làm lạnh
+320984,Máy lạnh Comfee Inverter 1 HP CFS-10VCB1,9590000.0,9590000.0,Comfee,0,0.0,1 chiều chỉ làm lạnh
