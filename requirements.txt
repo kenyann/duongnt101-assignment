@@ -1,0 +1,6 @@
+pandas
+numpy
+selenium
+beautifulsoup4
+webdriver-manager
+apache-airflow-providers-microsoft-azure
