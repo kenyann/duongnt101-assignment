@@ -23,7 +23,9 @@ def extract(url):
 
 
 def transform(df):
-    df['ProductID'] = df['Name'].apply(lambda name: name.split(' ')[-1])
+    product_id_list = df['Name'].values.tolist()
+    df['ProductID'] = [product_id[0].split(
+        " ")[-1] for product_id in product_id_list]
     return df
 
 
@@ -31,7 +33,7 @@ def extract_transform(ti):
     df = extract('https://www.dienmayxanh.com/may-lanh#c=2002&o=13&pi=7')
     df = transform(df)
     df_path = 'may-lanh.csv'
-    df.to_csv('path', index=False)
+    df.to_csv(df_path, index=False)
     ti.xcom_push(key='df_path', value=df_path)
 
 
