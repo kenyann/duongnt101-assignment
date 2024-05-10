@@ -1,9 +1,8 @@
 from dotenv import load_dotenv
 import os
 from airflow.operators.python import PythonOperator
-from airflow.decorators import dag, task
+from airflow.decorators import dag
 from datetime import datetime, timedelta
-from airflow.providers.microsoft.azure.transfers.local_to_adls import LocalFilesystemToADLSOperator
 from airflow.providers.microsoft.azure.transfers.local_to_wasb import LocalFilesystemToWasbOperator
 # nopep8
 import sys
@@ -15,7 +14,8 @@ default_args = {
     "retries": 1,
     "retry_delay": timedelta(minutes=5)
 }
-load_dotenv()
+
+load_dotenv()  # Load environment variables from .env file
 
 
 def extract(url):
@@ -26,16 +26,15 @@ def extract(url):
 
 def transform(df):
     product_id_list = df['Name'].values.tolist()
-    df['ProductID'] = [product_id[0].split(
-        " ")[-1] for product_id in product_id_list]
+    df['ProductID'] = [product_id[0].split(" ")[-1] for product_id in product_id_list]  # nopep8
     return df
 
 
 def extract_transform(ti):
     df = extract(os.getenv("URL") +
-                 os.getenv("FILE_NAME") + os.getenv("SUFFIX"))
+                 os.getenv("CATEGORY") + os.getenv("SUFFIX"))
     df = transform(df)
-    df_path = f'{os.getenv("FILE_NAME")}.csv'
+    df_path = f'data/{os.getenv("CATEGORY")}.csv'
     df.to_csv(df_path, index=False)
     ti.xcom_push(key='df_path', value=df_path)
 
@@ -52,7 +51,7 @@ def pipeline():
         task_id="upload_file",
         file_path="{{ ti.xcom_pull(key='df_path') }}",
         blob_name="{{ ti.xcom_pull(key='df_path') }}",
-        container_name=os.getenv("FILE_NAME"),
+        container_name=os.getenv("CONTAINER_NAME"),
         wasb_conn_id=os.getenv("WASB_CONN_ID")
     )
     extract_transform_task >> load_task
