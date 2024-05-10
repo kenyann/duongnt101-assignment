@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 from airflow.operators.python import PythonOperator
 from airflow.decorators import dag, task
 from datetime import datetime, timedelta
@@ -8,12 +10,12 @@ import sys
 sys.path.insert(0, "./")
 from src.crawler import Crawler  # nopep8
 
-
 default_args = {
     "owner": "Duong_Nguy",
     "retries": 1,
     "retry_delay": timedelta(minutes=5)
 }
+load_dotenv()
 
 
 def extract(url):
@@ -30,9 +32,10 @@ def transform(df):
 
 
 def extract_transform(ti):
-    df = extract('https://www.dienmayxanh.com/may-lanh#c=2002&o=13&pi=7')
+    df = extract(os.getenv("URL") +
+                 os.getenv("FILE_NAME") + os.getenv("SUFFIX"))
     df = transform(df)
-    df_path = 'may-lanh.csv'
+    df_path = f'{os.getenv("FILE_NAME")}.csv'
     df.to_csv(df_path, index=False)
     ti.xcom_push(key='df_path', value=df_path)
 
@@ -44,19 +47,13 @@ def pipeline():
         task_id="extract_transform",
         python_callable=extract_transform
     )
-    # load = LocalFilesystemToADLSOperator(
-    #     task_id="upload_task",
-    #     local_path="test.csv",
-    #     remote_path="https://duongnt101.blob.core.windows.net/dmx/test.csv",
-    #     azure_data_lake_conn_id="adls_v2"
-    # )
 
     load_task = LocalFilesystemToWasbOperator(
         task_id="upload_file",
         file_path="{{ ti.xcom_pull(key='df_path') }}",
-        container_name="dmx",
         blob_name="{{ ti.xcom_pull(key='df_path') }}",
-        wasb_conn_id="abs"
+        container_name=os.getenv("FILE_NAME"),
+        wasb_conn_id=os.getenv("WASB_CONN_ID")
     )
     extract_transform_task >> load_task
 
