@@ -1,9 +1,6 @@
-from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 from airflow.decorators import dag, task
 from datetime import datetime, timedelta
-from airflow.utils.trigger_rule import TriggerRule
-from airflow.sensors.python import PythonSensor
 from airflow.providers.microsoft.azure.transfers.local_to_adls import LocalFilesystemToADLSOperator
 from airflow.providers.microsoft.azure.transfers.local_to_wasb import LocalFilesystemToWasbOperator
 # nopep8
@@ -19,31 +16,32 @@ default_args = {
 }
 
 
-@task(task_id="extract")
-def extract():
-    import pandas as pd
-    crawl = Crawler('https://www.dienmayxanh.com/may-lanh#c=2002&o=13&pi=7')
-    return crawl.extract()  # have to be json
+def extract(url):
+    crawl = Crawler(url)
+    df = crawl.get_data()
+    return df
 
 
 def transform(df):
-    df.to_csv("./duongnt101-assignment/may-lanh.csv", index=False)
+    df['ProductID'] = df['Name'].apply(lambda name: name.split(' ')[-1])
+    return df
+
+
+def extract_transform(ti):
+    df = extract('https://www.dienmayxanh.com/may-lanh#c=2002&o=13&pi=7')
+    df = transform(df)
+    df_path = 'may-lanh.csv'
+    df.to_csv('path', index=False)
+    ti.xcom_push(key='df_path', value=df_path)
 
 
 @dag(dag_id="etl", start_date=datetime(2024, 5, 9), default_args=default_args, catchup=False)
 def pipeline():
 
-    extract_task = PythonOperator(
-        task_id="crawl_data",
-        python_callable=extract
+    extract_transform_task = PythonOperator(
+        task_id="extract_transform",
+        python_callable=extract_transform
     )
-
-    transform_task = PythonOperator(
-        task_id="transform_data",
-        op_kwargs={"df": "{{ti.xcom_pull('extract')}}"},
-        python_callable=transform
-    )
-
     # load = LocalFilesystemToADLSOperator(
     #     task_id="upload_task",
     #     local_path="test.csv",
@@ -53,13 +51,12 @@ def pipeline():
 
     load_task = LocalFilesystemToWasbOperator(
         task_id="upload_file",
-        file_path="./duongnt101-assignment/may-lanh.csv",
+        file_path="{{ ti.xcom_pull(key='df_path') }}",
         container_name="dmx",
-        blob_name="may-lanh.csv",
+        blob_name="{{ ti.xcom_pull(key='df_path') }}",
         wasb_conn_id="abs"
     )
-    extract_task >> transform_task >> load_task
+    extract_transform_task >> load_task
 
 
 pipeline()
-# etl()
